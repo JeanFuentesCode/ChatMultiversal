@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Multiversal Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="chat-container">
+        <header class="chat-header">
+            <div class="avatar-group">
+                <div class="avatar"><i class="fas fa-robot"></i></div>
+            </div>
+            <div class="header-info">
+                <h2>Brothers Online</h2>
+                <span class="status">Gemini, Qwen, DeepSeek en línea</span>
+            </div>
+        </header>
+
+        <main class="chat-box" id="chat-box">
+            <div class="message bot">
+                <span class="sender-name">Sistema</span>
+                <p>¡Bienvenido a Multiversal! Escribe un mensaje para iniciar el debate.</p>
+            </div>
+        </main>
+
+        <footer class="chat-footer">
+            <div class="input-wrapper">
+                <input type="text" id="user-input" placeholder="Escribe un mensaje..." autocomplete="off" autofocus>
+                <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

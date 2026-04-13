@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #0a1014; /* Fondo exterior oscuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.chat-container {
+    width: 100%;
+    max-width: 600px;
+    height: 100vh;
+    background-color: #0b141a; /* Fondo del chat */
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* Header */
+.chat-header {
+    background-color: #202c33;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid #2a3942;
+    z-index: 10;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #005c4b;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+}
+
+.header-info h2 {
+    color: #e9edef;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.header-info .status {
+    color: #8696a0;
+    font-size: 13px;
+}
+
+/* Chat Box */
+.chat-box {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* Patrón de fondo opcional estilo WA */
+    background-image: url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png');
+    background-size: contain;
+    background-blend-mode: overlay;
+    background-color: rgba(11, 20, 26, 0.95);
+}
+
+.message {
+    max-width: 85%;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14.5px;
+    line-height: 1.4;
+    position: relative;
+    color: #e9edef;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.message.user {
+    align-self: flex-end;
+    background-color: #005c4b; /* Verde WA */
+    border-top-right-radius: 0;
+}
+
+.message.bot {
+    align-self: flex-start;
+    background-color: #202c33; /* Gris WA */
+    border-top-left-radius: 0;
+}
+
+.sender-name {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+/* Colores para cada bot para distinguirlos */
+.bot[data-bot="Gemini"] .sender-name { color: #53bdeb; }
+.bot[data-bot="Qwen"] .sender-name { color: #ff8a8c; }
+.bot[data-bot="DeepSeek"] .sender-name { color: #00e676; }
+.bot[data-bot="Sistema"] .sender-name { color: #8696a0; }
+
+.typing-indicator {
+    align-self: flex-start;
+    background-color: transparent;
+    color: #8696a0;
+    font-size: 13px;
+    font-style: italic;
+    padding: 5px;
+    display: none;
+}
+
+/* Footer (Input) */
+.chat-footer {
+    background-color: #202c33;
+    padding: 10px 15px;
+}
+
+.input-wrapper {
+    display: flex;
+    gap: 10px;
+    background-color: #2a3942;
+    border-radius: 24px;
+    padding: 5px 10px;
+    align-items: center;
+}
+
+.input-wrapper input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: #e9edef;
+    font-size: 15px;
+    padding: 10px;
+    outline: none;
+}
+
+.input-wrapper button {
+    background: transparent;
+    border: none;
+    color: #8696a0;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.2s;
+}
+
+.input-wrapper button:hover {
+    color: #00a884;
+}
+
+/* Para pantallas grandes, simular la app nativa */
+@media (min-width: 601px) {
+    .chat-container {
+        height: 90vh;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+}
