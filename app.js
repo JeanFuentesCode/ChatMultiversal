@@ -3,7 +3,7 @@ const userInput = document.getElementById('user-input');
 const sendBtn = document.getElementById('send-btn');
 
 // URL de tu backend (cámbiala cuando subas el backend a Render/Railway)
-const API_URL = 'https://thirty-moons-give.loca.lt/chat';
+const API_URL = 'https://chatmultiversal.onrender.com/chat';
 
 // Función para agregar mensajes al DOM
 function addMessage(sender, text, isUser) {
