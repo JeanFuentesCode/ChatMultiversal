@@ -107,3 +107,29 @@ userInput.addEventListener('keypress', (e) => {
         sendMessage();
     }
 });
+
+function showTyping(show) {
+    let indicator = document.getElementById('typing-indicator');
+    if (show) {
+        if (!indicator) {
+            indicator = document.createElement('div');
+            indicator.id = 'typing-indicator';
+            indicator.classList.add('message', 'bot', 'typing');
+            indicator.innerHTML = '<div class="dot"></div><div class="dot"></div><div class="dot"></div>';
+            chatBox.appendChild(indicator);
+        }
+        indicator.style.display = 'flex';
+        chatBox.scrollTop = chatBox.scrollHeight;
+    } else if (indicator) {
+        indicator.style.display = 'none';
+    }
+}
+
+// REGISTRO DE PWA PARA QUE SALGA EL BOTÓN DE INSTALAR
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+            .then(reg => console.log('SW activo', reg))
+            .catch(err => console.log('SW falló', err));
+    });
+}
